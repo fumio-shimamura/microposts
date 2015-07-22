@@ -22,5 +22,14 @@ module Microposts
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    
+    # add start shimamura 20150720
+    config.generators do |g|
+      g.stylesheets fales
+      g.javascripts fales
+      g.helper fales
+      g.test_framework fales
+    end
+    # add end
   end
 end
