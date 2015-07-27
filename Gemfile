@@ -32,7 +32,9 @@ gem 'bootstrap-sass'
 # add end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+# add start shimamura 20150720
+gem 'bcrypt', '~> 3.1.7'
+# add end
 
 # Use Unicorn as the app server
 # gem 'unicorn'
