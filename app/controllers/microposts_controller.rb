@@ -11,11 +11,11 @@ class MicropostsController < ApplicationController
   	end
   end
 
-  def destory
-    @micropost = current_user.microposts.find(id: params[:id])
+  def destroy
+    @micropost = current_user.microposts.find_by(id: params[:id])
     return redirect_to root_url if @micropost.nil?
-    @micropost.destory
-    flas[:success] = "Micropost deleted"
+    @micropost.destroy
+    flash[:success] = "Micropost deleted"
     redirect_to request.referrer || root_url
   end
 
