@@ -1,0 +1,10 @@
+<h3>following (<%= @user.following_users.count %>)</h3>
+  <ol class="microposts">
+  <% @user.following_users.each do |following_user| %>
+    <li>
+    <span class="user"><%= gravatar_for following_user %></span></br>
+    <span class="user"><%= link_to following_user.name , user_path(following_user) %></span></br></br>
+    </li>
+    </br>
+  <% end %>
+</ol>

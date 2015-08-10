@@ -16,6 +16,12 @@
 
   <div class="col-md-8">
     <%= render 'follow_form' if logged_in? %>
+
+<!-- 追加 -->
+    <h3>Followings  <%= link_to @user.following_users.count, follower_path(@user) %></h3>
+    <h3>Followers   <%= link_to @user.follower_users.count,  followed_path(@user) %></h3>
+<!-- 追加ここまで -->
+
     <% if @user.microposts.any? %>
       <h3>Microposts (<%= @user.microposts.count %>)</h3>
       <ol class="microposts">
