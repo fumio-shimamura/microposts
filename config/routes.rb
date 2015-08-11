@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   get     'profile'   => 'sessions#edit'
   patch   'profile'   => 'sessions#update'
 
+  get '/follower/:id',  to: 'users#followings', as: 'follower'
+  get '/followed/:id',  to: 'users#followers',  as: 'followed'
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts
