@@ -36,6 +36,11 @@ gem 'bootstrap-sass'
 gem 'bcrypt', '~> 3.1.7'
 # add end
 
+# add start shimamura 20150811
+#paging Library	
+gem 'kaminari'
+# add end
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

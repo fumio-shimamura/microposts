@@ -35,9 +35,28 @@ class SessionsController < ApplicationController
     end
   end
 
+  def settingsedit
+    @user = User.find_by(id: session[:user_id])
+  end
+
+  def settingsupdate
+    @user = User.find_by(id: session[:user_id])
+    @user.update_attributes(user_settings)
+    if @user.save
+      flash[:success] = "Update Complete!"
+      redirect_to @user
+    else
+      flash[:danger] = "Update error!"
+      render 'edit'
+    end
+  end
+
   private
   def user_profiles
     params.require(:user).permit(:introduction, :place, :website)
   end
 
+  def user_settings
+    params.require(:user).permit(:postsperpage)
+  end
 end

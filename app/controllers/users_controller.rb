@@ -2,7 +2,13 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts
+    #set microposts per page(ppp)
+    if current_user.postsperpage?
+      ppp = current_user.postsperpage
+    else
+      ppp = 0
+    end
+    @microposts = @user.microposts.page(params[:page]).per(ppp)
     
     @following_users = @user.following_users
   end

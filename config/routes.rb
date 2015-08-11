@@ -8,6 +8,9 @@ Rails.application.routes.draw do
 
   get     'profile'   => 'sessions#edit'
   patch   'profile'   => 'sessions#update'
+  
+  get     'settings'  => 'sessions#settingsedit'
+  patch   'settings'  => 'sessions#settingsupdate'
 
   get '/follower/:id',  to: 'users#followings', as: 'follower'
   get '/followed/:id',  to: 'users#followers',  as: 'followed'

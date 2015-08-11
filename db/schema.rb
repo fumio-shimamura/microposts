@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150808101721) do
+ActiveRecord::Schema.define(version: 20150811170636) do
 
   create_table "microposts", force: :cascade do |t|
     t.integer  "user_id"
@@ -34,7 +34,6 @@ ActiveRecord::Schema.define(version: 20150808101721) do
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
 
-
   create_table "users", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
@@ -44,6 +43,7 @@ ActiveRecord::Schema.define(version: 20150808101721) do
     t.string   "introduction"
     t.string   "place"
     t.string   "website"
+    t.integer  "postsperpage"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
