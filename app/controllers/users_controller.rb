@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    @microposts = @user.microposts.page(params[:page]).per(current_user.postsperpage)
+    @microposts = @user.microposts.page(params[:page]).per(@user.postsperpage)
     @following_users = @user.following_users
   end
   
@@ -13,6 +13,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      session[:user_id] = @user.id
       flash[:success] = "Welcome to the Sample App!"
       redirect_to @user
     else

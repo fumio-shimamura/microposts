@@ -1,5 +1,4 @@
-<% if current_user.postsperpage.nil? %>
-<% elsif current_user.postsperpage == 0 %>
+<% if current_user.postsperpage == 0 %>
 <% else %>
   <%= paginate(@feed_items) %>
 <% end %>
