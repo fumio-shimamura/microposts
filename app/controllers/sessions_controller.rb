@@ -47,7 +47,7 @@ class SessionsController < ApplicationController
       redirect_to @user
     else
       flash[:danger] = "Update error!"
-      render 'edit'
+      render 'settingsedit'
     end
   end
 

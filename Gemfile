@@ -36,8 +36,8 @@ gem 'bootstrap-sass'
 gem 'bcrypt', '~> 3.1.7'
 # add end
 
+# paging Library
 # add start shimamura 20150811
-#paging Library	
 gem 'kaminari'
 # add end
 

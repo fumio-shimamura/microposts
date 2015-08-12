@@ -2,14 +2,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-    #set microposts per page(ppp)
-    if current_user.postsperpage?
-      ppp = current_user.postsperpage
-    else
-      ppp = 0
-    end
-    @microposts = @user.microposts.page(params[:page]).per(ppp)
-    
+    @microposts = @user.microposts.page(params[:page]).per(current_user.postsperpage)
     @following_users = @user.following_users
   end
   
@@ -27,7 +20,7 @@ class UsersController < ApplicationController
     end
   end
   
-  #追加
+
   def followings
     @user = User.find(params[:id])
     @following_users = @user.following_users
@@ -37,6 +30,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @follower_users = @user.follower_users
   end
+
 
   private
   def user_params
